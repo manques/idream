@@ -1,0 +1,54 @@
+<sidebar class="sidebar">
+    <img src="/images/logo-full.png" 
+        alt="full logo" 
+        class="full-logo" />
+    <!-- top -->
+    <ul class="menus menus-top">
+        <li>
+            <a href="/dashboard" 
+               class="<%= title === 'Dashboard' ? 'active': null %>">
+                Dashboard
+            </a>
+        </li>
+    </ul>
+    <ul class="menus">
+        <% menus.forEach((menu) => { %>
+            <li>
+                <% if(menu.subMenus){ %>
+                    <a class="<%= title.toLowerCase() === menu.link.split("/")[1].toLowerCase() ? 'active': null %> parentMenus">
+                        <%= menu.title %> 
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <i class="fa fa-caret-down "></i>
+                    </a>
+                <% } else{ %>
+                    <a href="<%= menu.link %>"
+                       class="<%= title.toLowerCase() === menu.link.split("/")[1].toLowerCase() ? 'active': null %>">
+                        <%= menu.title %>
+                    </a>
+                <% } %>
+                <% if(menu.subMenus){ %>
+                    <ul class="menus subMenus">
+                        <% menu.subMenus.forEach((submenu) => { %>
+                            <li>
+                            <a href="<%= `${menu.link}${submenu.link}` %>"
+                                class="<%= title === submenu.title ? 'active-subMenus': null %>">
+                                    <%= submenu.title %>
+                            </a>
+                            </li>
+                        <% }); %>
+                    </ul>
+                <% } %>
+            </li>
+        <% }); %>
+    </ul>
+    <!-- bottom -->
+    <ul class="menus menus-bottom">
+        <li>
+            <a href="/admin" 
+               class="<%= title === 'Admin' ? 'active': null %>">
+                <i class="fa fa-gear"></i> Admin
+            </a>
+        </li>
+    </ul>
+</sidebar>

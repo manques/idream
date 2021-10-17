@@ -1,0 +1,12 @@
+.title, .status {
+    text-align: center;
+}
+
+.title{
+    color: red;
+    font-size: xx-large;
+}
+.status{
+    color: rgb(252, 64, 64);
+    font-size: xx-large;
+}

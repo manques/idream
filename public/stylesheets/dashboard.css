@@ -1,0 +1,14 @@
+.dashboard {
+    display: flex;
+}
+
+.main-container {
+    width: calc(100% - 250px);
+    background-color: rgb(147, 139, 153);
+}
+
+.main {
+    width: 100%;
+    background-color: rgb(25, 139, 132);
+}
+
